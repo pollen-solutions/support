@@ -10,12 +10,13 @@ use Pollen\Support\Exception\ProxyRuntimeException;
 class ProxyResolver
 {
     /**
+     * Dependency injection container instance.
      * @var Container
      */
-    protected static $proxyContainer;
+    protected static Container $proxyContainer;
 
     /**
-     * Définition du conteneur d'injection de dépendances
+     * Set the dependency injection container instance.
      *
      * @param Container $container
      *
@@ -27,7 +28,7 @@ class ProxyResolver
     }
 
     /**
-     * Récupération d'une instance servie par le proxy static.
+     * Get an class instance provided by a static proxy.
      *
      * @param string $alias
      * @param string|null $fallbackClassname

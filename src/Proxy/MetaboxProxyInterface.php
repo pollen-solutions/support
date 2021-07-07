@@ -9,14 +9,14 @@ use Pollen\Metabox\MetaboxManagerInterface;
 interface MetaboxProxyInterface
 {
     /**
-     * Instance du gestionnaire de metaboxes.
+     * Get the metabox manager instance.
      *
      * @return MetaboxManagerInterface
      */
     public function metabox(): MetaboxManagerInterface;
 
     /**
-     * Définition de l'instance du gestionnaire de metaboxes.
+     * Set the metabox manager instance.
      *
      * @param MetaboxManagerInterface $metaboxManager
      *

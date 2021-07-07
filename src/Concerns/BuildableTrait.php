@@ -10,13 +10,14 @@ namespace Pollen\Support\Concerns;
 trait BuildableTrait
 {
     /**
-     * État d'initialisation.
+     * Build status.
      * @var bool
      */
-    private $built = false;
+    private bool $built = false;
 
     /**
-     * Vérification de l'état d'initialisation.
+     * Check if build status is enabled.
+     *
      * @return bool
      */
     public function isBuilt(): bool
@@ -25,7 +26,7 @@ trait BuildableTrait
     }
 
     /**
-     * Définition de l'état d'initialisation.
+     * Set the build status.
      *
      * @param bool $built
      *

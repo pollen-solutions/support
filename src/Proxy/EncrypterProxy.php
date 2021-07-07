@@ -15,12 +15,13 @@ use RuntimeException;
 trait EncrypterProxy
 {
     /**
-     * Instance du gestionnaire d'encryptage.
+     * Encrypter instance.
+     * @var EncrypterInterface|null
      */
     private ?EncrypterInterface $encrypter = null;
 
     /**
-     * Instance du gestionnaire d'encryptage.
+     * Get the encrypter instance.
      *
      * @return EncrypterInterface
      */
@@ -42,7 +43,7 @@ trait EncrypterProxy
     }
 
     /**
-     * Décryptage d'une chaîne de caractères.
+     * Decrypt an hashed character string.
      *
      * @param string $hash
      *
@@ -54,7 +55,7 @@ trait EncrypterProxy
     }
 
     /**
-     * Encryptage d'une chaîne de caractères.
+     * Encrypt character string.
      *
      * @param string $plain
      *
@@ -66,7 +67,7 @@ trait EncrypterProxy
     }
 
     /**
-     * Définition du gestionnaire d'encryptage.
+     * Set the encrypter instance.
      *
      * @param EncrypterInterface $encrypter
      *

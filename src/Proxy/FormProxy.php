@@ -17,12 +17,13 @@ use RuntimeException;
 trait FormProxy
 {
     /**
-     * Instance du gestionnaire de formulaires.
+     * Form manager instance.
+     * @var FormManagerInterface|null
      */
     private ?FormManagerInterface $formManager = null;
 
     /**
-     * Instance du gestionnaire de formulaires|Instance d'un formulaire.
+     * Retrieve the form manager instance|Get the form instance if it exists.
      *
      * @param string|null $alias
      *
@@ -54,7 +55,7 @@ trait FormProxy
     }
 
     /**
-     * Définition du gestionnaire de formulaires.
+     * Set the form manager instance.
      *
      * @param FormManagerInterface $formManager
      *

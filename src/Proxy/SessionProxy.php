@@ -15,12 +15,13 @@ use RuntimeException;
 trait SessionProxy
 {
     /**
-     * Instance du gestionnaire de sessions.
+     * Session manager instance.
+     * @var SessionManagerInterface|null
      */
     private ?SessionManagerInterface $sessionManager = null;
 
     /**
-     * Instance du gestionnaire de sessions.
+     * Get the session manager instance.
      *
      * @return SessionManagerInterface
      */
@@ -42,7 +43,7 @@ trait SessionProxy
     }
 
     /**
-     * Définition du gestionnaire de sessions.
+     * Set the session manager instance.
      *
      * @param SessionManagerInterface $sessionManager
      *

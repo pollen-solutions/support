@@ -17,12 +17,13 @@ use RuntimeException;
 trait ValidatorProxy
 {
     /**
-     * Instance du gestionnaire de validation.
+     * Validator instance.
+     * @var ValidatorInterface|null
      */
     private ?ValidatorInterface $validator = null;
 
     /**
-     * Instance du gestionnaire de validation|Validation.
+     * Retrieve the validator instance|Get a validation rule instance if it exists.
      *
      * @param string|null $ruleName.
      * @param array|null $args
@@ -55,7 +56,7 @@ trait ValidatorProxy
     }
 
     /**
-     * Définition du gestionnaire de validation.
+     * Set the validator instance.
      *
      * @param ValidatorInterface $validator
      *

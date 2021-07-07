@@ -15,12 +15,13 @@ use RuntimeException;
 trait LogProxy
 {
     /**
-     * Instance du gestionnaire de log.
+     * Log manager instance.
+     * @var LogManagerInterface|null
      */
     private ?LogManagerInterface $logManager = null;
 
     /**
-     * Instance du gestionnaire de log|Enregistrement d'un message de log.
+     * Retrieve the log manager instance|Add a log record.
      *
      * @param string|int|null $level
      * @param string $message
@@ -50,7 +51,7 @@ trait LogProxy
     }
 
     /**
-     * Définition du gestionnaire de log.
+     * Set the log manager instance.
      *
      * @param LogManagerInterface $logManager
      *

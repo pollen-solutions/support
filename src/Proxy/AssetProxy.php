@@ -17,12 +17,13 @@ use RuntimeException;
 trait AssetProxy
 {
     /**
-     * Instance du gestionnaire des assets.
+     * Asset Manager instance.
+     * @var AssetManagerInterface|null
      */
     private ?AssetManagerInterface $assetManager = null;
 
     /**
-     * Instance du gestionnaire des assets.
+     * Returns the asset manager instance|A registered asset instance.
      *
      * @param string|null $name
      *
@@ -54,7 +55,7 @@ trait AssetProxy
     }
 
     /**
-     * Définition du gestionnaire des assets.
+     * Set the asset manager instance.
      *
      * @param AssetManagerInterface $assetManager
      *

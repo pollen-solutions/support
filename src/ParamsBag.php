@@ -11,10 +11,10 @@ use Pollen\Support\Exception\JsonException;
 class ParamsBag implements ParamsBagInterface
 {
     /**
-     * Liste des paramètres.
+     * List of parameter attributes.
      * @var array
      */
-    protected $attributes = [];
+    protected array $attributes = [];
 
     /**
      * @param array $attrs
@@ -28,13 +28,13 @@ class ParamsBag implements ParamsBagInterface
     }
 
     /**
-     * Création d'un instance basée sur une liste d'attributs.
+     * Create a new instance from a list of parameters attributes.
      *
-     * @param array Liste des attributs.
+     * @param array $attrs
      *
      * @return static
      */
-    public static function createFromAttrs($attrs): self
+    public static function createFromAttrs(array $attrs): self
     {
         $paramBag = new static();
         $paramBag->set($attrs);
@@ -141,7 +141,7 @@ class ParamsBag implements ParamsBagInterface
     /**
      * @inheritDoc
      */
-    public function json($options = 0): string
+    public function json(int $options = 0): string
     {
         try {
             $json = json_encode($this->all(), $options|JSON_THROW_ON_ERROR);
@@ -160,12 +160,6 @@ class ParamsBag implements ParamsBagInterface
         return array_keys($this->attributes);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function map(&$value, $key): void
-    {
-    }
 
     /**
      * @inheritDoc

@@ -10,14 +10,14 @@ use InvalidArgumentException;
 interface ParamsBagAwareTraitInterface
 {
     /**
-     * Liste des paramètres par défaut.
+     * List of default parameters.
      *
      * @return array
      */
     public function defaultParams(): array;
 
     /**
-     * Définition|Récupération|Instance des paramètres de configuration.
+     * Instance of ParamsBag|Set a list of parameters|Get a parameters value.
      *
      * @param array|string|null $key
      * @param mixed $default
@@ -29,18 +29,18 @@ interface ParamsBagAwareTraitInterface
     public function params($key = null, $default = null);
 
     /**
-     * Traitement de la liste des paramètres.
+     * Parse the entire list of parameters.
      *
      * @return void
      */
     public function parseParams(): void;
 
     /**
-     * Définition de la liste des paramètres.
+     * Set a list of parameters.
      *
-     * @param array $params
+     * @param array $parameters
      *
      * @return void
      */
-    public function setParams(array $params): void;
+    public function setParams(array $parameters): void;
 }

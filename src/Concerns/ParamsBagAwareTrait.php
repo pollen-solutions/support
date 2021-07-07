@@ -10,13 +10,13 @@ use InvalidArgumentException;
 trait ParamsBagAwareTrait
 {
     /**
-     * Instance du gestionnaire de paramètres
+     * ParamsBag instance.
      * @var ParamsBag|null
      */
-    private $paramsBag;
+    private ?ParamsBag $paramsBag = null;
 
     /**
-     * Liste des paramètres par défaut.
+     * List of default parameters.
      *
      * @return array
      */
@@ -26,7 +26,7 @@ trait ParamsBagAwareTrait
     }
 
     /**
-     * Définition|Récupération|Instance des paramètres de configuration.
+     * Instance of ParamsBag|Set a list of parameters|Get a parameters value.
      *
      * @param array|string|null $key
      * @param mixed $default
@@ -58,23 +58,21 @@ trait ParamsBagAwareTrait
     }
 
     /**
-     * Traitement de la liste des paramètres.
+     * Parse the entire list of parameters.
      *
      * @return void
      */
-    public function parseParams(): void
-    {
-    }
+    public function parseParams(): void {}
 
     /**
-     * Définition de la liste des paramètres.
+     * Set a list of parameters.
      *
-     * @param array $params
+     * @param array $parameters
      *
      * @return void
      */
-    public function setParams(array $params): void
+    public function setParams(array $parameters): void
     {
-        $this->params($params);
+        $this->params($parameters);
     }
 }

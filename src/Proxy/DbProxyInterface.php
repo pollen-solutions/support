@@ -11,7 +11,7 @@ use Illuminate\Database\Query\Builder;
 interface DbProxyInterface
 {
     /**
-     * Instance du gestionnaire de base de données|Gestionnaire de requête d'une table de la base de données.
+     * Retrieve database manager instance|Get the query builder for a specific table.
      *
      * @param string|null $dbTable
      *
@@ -20,7 +20,7 @@ interface DbProxyInterface
     public function db(?string $dbTable = null);
 
     /**
-     * Instance du constructeur de base de données.
+     * Get instance of database schema builder.
      *
      * @param string $name
      *
@@ -29,7 +29,7 @@ interface DbProxyInterface
     public function schema(string $name = 'default'): SchemaBuilder;
 
     /**
-     * Définition du gestionnaire de base de données.
+     * Set database manager instance.
      *
      * @param DatabaseManagerInterface $dbManager
      *

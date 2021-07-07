@@ -10,14 +10,14 @@ use Pollen\View\ViewManagerInterface;
 interface ViewProxyInterface
 {
     /**
-     * Resolve viewManager instance.
+     * Retrieve viewManager instance.
      *
      * @return ViewManagerInterface
      */
     public function viewManager(): ViewManagerInterface;
 
     /**
-     * Resolve view instance or return a particular template render.
+     * Retrieve view engine instance|Return the named template render if it exists.
      *
      * @param string|null $name.
      * @param array $data
@@ -27,7 +27,7 @@ interface ViewProxyInterface
     public function view(?string $name = null, array $data = []);
 
     /**
-     * Set viewManager instance.
+     * Set view manager instance.
      *
      * @param ViewManagerInterface $viewManager
      *

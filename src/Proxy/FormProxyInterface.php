@@ -10,7 +10,7 @@ use Pollen\Form\FormManagerInterface;
 interface FormProxyInterface
 {
     /**
-     * Instance du gestionnaire de formulaires|Instance d'un formulaire.
+     * Retrieve the form manager instance|Get the form instance if it exists.
      *
      * @param string|null $alias
      *
@@ -19,7 +19,7 @@ interface FormProxyInterface
     public function form(?string $alias = null);
 
     /**
-     * Définition du gestionnaire de formulaires.
+     * Set the form manager instance.
      *
      * @param FormManagerInterface $formManager
      *

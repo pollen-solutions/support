@@ -9,14 +9,14 @@ use Pollen\Debug\DebugManagerInterface;
 interface DebugProxyInterface
 {
     /**
-     * Instance du gestionnaire de débogage.
+     * Get debug manager instance.
      *
      * @return DebugManagerInterface
      */
     public function debug(): DebugManagerInterface;
 
     /**
-     * Définition du gestionnaire de débogage.
+     * Set debug manager instance.
      *
      * @param DebugManagerInterface $debugManager
      *

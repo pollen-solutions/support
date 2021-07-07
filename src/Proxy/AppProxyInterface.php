@@ -9,7 +9,7 @@ use Pollen\Kernel\ApplicationInterface;
 Interface AppProxyInterface
 {
     /**
-     * Resolve App Instance or service served by container.
+     * Resolve Kernel application instance|Service served by the Kernel application.
      *
      * @param string|null $serviceName
      *
@@ -18,7 +18,7 @@ Interface AppProxyInterface
     public function app(?string $serviceName = null);
 
     /**
-     * Set App instance.
+     * Set Kernel application instance.
      *
      * @param ApplicationInterface $app
      *

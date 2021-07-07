@@ -16,12 +16,13 @@ use RuntimeException;
 trait ConfigProxy
 {
     /**
-     * Instance du gestionnaire de configuration.
+     * Configurator instance.
+     * @var ConfiguratorInterface|null
      */
     private ?ConfiguratorInterface $configurator = null;
 
     /**
-     * Instance du gestionnaire de configuration.
+     * Configurator instance|Set configuration attributes|Get a configuration attribute.
      *
      * @param array|string|null $key
      * @param mixed $default
@@ -62,7 +63,7 @@ trait ConfigProxy
     }
 
     /**
-     * Définition du gestionnaire de configuration.
+     * Set the configurator instance.
      *
      * @param ConfiguratorInterface $configurator
      *

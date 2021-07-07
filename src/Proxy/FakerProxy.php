@@ -18,11 +18,12 @@ trait FakerProxy
 {
     /**
      * Faker instance.
+     * @var FakerInterface|null
      */
     private ?FakerInterface $faker = null;
 
     /**
-     * Get Faker instance|Return a modifier call.
+     * Get faker instance|Return a modifier call.
      *
      * @param string|null $modifier
      * @param ...$args
@@ -55,7 +56,7 @@ trait FakerProxy
     }
 
     /**
-     * Set Faker instance.
+     * Set faker instance.
      *
      * @param FakerInterface $faker
      *

@@ -7,9 +7,9 @@ namespace Pollen\Support;
 class Img
 {
     /**
-     * Récupération de la source d'une image au format base64.
+     * Get image source attribute in base64 format from filename.
      *
-     * @param string $filename Chemin absolu vers l'image
+     * @param string $filename
      *
      * @return string|null
      */

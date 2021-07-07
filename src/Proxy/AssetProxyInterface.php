@@ -10,7 +10,7 @@ use Pollen\Asset\AssetManagerInterface;
 Interface AssetProxyInterface
 {
     /**
-     * Instance du gestionnaire des assets.
+     * Returns the asset manager instance|A registered asset instance.
      *
      * @param string|null $name
      *
@@ -19,7 +19,7 @@ Interface AssetProxyInterface
     public function asset(?string $name = null);
 
     /**
-     * Définition du gestionnaire des assets.
+     * Set the asset manager instance.
      *
      * @param AssetManagerInterface $assetManager
      *

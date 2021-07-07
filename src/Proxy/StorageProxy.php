@@ -17,12 +17,13 @@ use RuntimeException;
 trait StorageProxy
 {
     /**
-     * Instance du gestionnaire de stockage.
+     * Storage manager instance.
+     * @var StorageManagerInterface|null
      */
     private ?StorageManagerInterface $storageManager = null;
 
     /**
-     * Instance du gestionnaire de stockage|système de gestion de fichiers.
+     * Retrieve the storage manager instance|Get a filesystem instance if it exists.
      *
      * @param string|null $diskName
      *
@@ -54,7 +55,7 @@ trait StorageProxy
     }
 
     /**
-     * Définition du gestionnaire de stockage.
+     * Set the storage manager instance.
      *
      * @param StorageManagerInterface $storageManager
      *

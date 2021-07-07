@@ -17,11 +17,12 @@ trait ViewProxy
 {
     /**
      * ViewManager instance.
+     * @var ViewManagerInterface|null
      */
     private ?ViewManagerInterface $viewManager = null;
 
     /**
-     * Resolve viewManager instance.
+     * Retrieve viewManager instance.
      *
      * @return ViewManagerInterface
      */
@@ -43,7 +44,7 @@ trait ViewProxy
     }
 
     /**
-     * Resolve view instance or return a particular template render.
+     * Retrieve view engine instance|Return the named template render if it exists.
      *
      * @param string|null $name.
      * @param array $data
@@ -62,7 +63,7 @@ trait ViewProxy
     }
 
     /**
-     * Set viewManager instance.
+     * Set view manager instance.
      *
      * @param ViewManagerInterface $viewManager
      *

@@ -9,7 +9,7 @@ use Pollen\Log\LogManagerInterface;
 interface LogProxyInterface
 {
     /**
-     * Instance du gestionnaire de log|Enregistrement d'un message de log.
+     * Retrieve the log manager instance|Add a log record.
      *
      * @param string|int|null $level
      * @param string $message
@@ -20,7 +20,7 @@ interface LogProxyInterface
     public function log($level = null, string $message = '', array $context = []);
 
     /**
-     * Définition du gestionnaire de log.
+     * Set the log manager instance.
      *
      * @param LogManagerInterface $logManager
      *

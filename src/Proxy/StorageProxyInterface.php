@@ -10,7 +10,7 @@ use Pollen\Filesystem\FilesystemInterface;
 interface StorageProxyInterface
 {
     /**
-     * Instance du gestionnaire de stockage|système de gestion de fichiers.
+     * Retrieve the storage manager instance|Get a filesystem instance if it exists.
      *
      * @param string|null $diskName
      *
@@ -19,7 +19,7 @@ interface StorageProxyInterface
     public function storage(?string $diskName = null);
 
     /**
-     * Définition du gestionnaire de stockage.
+     * Set the storage manager instance.
      *
      * @param StorageManagerInterface $storageManager
      *

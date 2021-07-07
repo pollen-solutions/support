@@ -14,63 +14,63 @@ use InvalidArgumentException;
 class MessagesBag implements MessagesBagInterface
 {
     /**
-     * Niveau des messages de débogage.
+     * Detailed debug information.
      * @var int
      */
     public const DEBUG = 100;
 
     /**
-     * Niveau des messages d'information.
+     * Interesting messages.
      * @var int
      */
     public const INFO = 200;
 
     /**
-     * Niveau des messages de succès.
+     * Success events.
      * @var int
      */
     public const SUCCESS = 225;
 
     /**
-     * Niveau des messages de notification standard.
+     * Uncommon events.
      * @var int
      */
     public const NOTICE = 250;
 
     /**
-     * Niveau des messages d'avertissement.
+     * Exceptional occurrences that are not errors.
      * @var int
      */
     public const WARNING = 300;
 
     /**
-     * Niveau des messages d'erreur.
+     * Runtime errors.
      * @var int
      */
     public const ERROR = 400;
 
     /**
-     * Niveau des messages d'erreur critique.
+     * Critical conditions.
      * @var int
      */
     public const CRITICAL = 500;
 
     /**
-     * Niveau des messages d'alerte notifiant une intervention immédiate.
+     * Action must be taken immediately.
      * @var int
      */
     public const ALERT = 550;
 
     /**
-     * Niveau des messages d'urgence notifiant le système inutilisable.
+     * Urgent alert.
      * @var int
      */
     public const EMERGENCY = 600;
 
     /**
-     * liste des niveaux de messages supportés.
+     * List of supported levels.
      *
-     * @var array<int, string> $levels Logging levels
+     * @var array<int, string> $levels
      */
     protected static array $levels = [
         self::DEBUG     => 'DEBUG',
@@ -85,25 +85,25 @@ class MessagesBag implements MessagesBagInterface
     ];
 
     /**
-     * Niveau de traitement des messages.
+     * Handling level.
      * @var int
      */
     protected int $handlingLevel = self::DEBUG;
 
     /**
-     * Liste des enregistrements
+     * List of records.
      * @var ParamsBag|null
      */
     private ?ParamsBag $records = null;
 
     /**
-     * Liste des enregistrement collectés (dédiés à la recherche).
+     * List of collected records (for search).
      * @var Collection|null
      */
     private ?Collection $collectedRecords = null;
 
     /**
-     * Récupération d'un élément d'itération.
+     * Get an iteration item.
      *
      * @param string $offset
      *
@@ -115,19 +115,17 @@ class MessagesBag implements MessagesBagInterface
     }
 
     /**
-     * Définition d'un élément d'itération.
+     * Set an iteration item.
      *
      * @param string $offset
      * @param mixed $value
      *
      * @return void
      */
-    public function __set(string $offset, $value): void
-    {
-    }
+    public function __set(string $offset, $value): void { }
 
     /**
-     * Vérification d'existence d'un élément d'itération.
+     * Check if an iteration item exists.
      *
      * @param string $offset
      *
@@ -139,15 +137,13 @@ class MessagesBag implements MessagesBagInterface
     }
 
     /**
-     * Suppression d'un élément d'itération.
+     * Unset an iteration item.
      *
      * @param string $offset
      *
      * @return void
      */
-    public function __unset(string $offset): void
-    {
-    }
+    public function __unset(string $offset): void { }
 
     /**
      * @inheritDoc
@@ -168,19 +164,15 @@ class MessagesBag implements MessagesBagInterface
     /**
      * @inheritDoc
      */
-    public function offsetSet($offset, $value): void
-    {
-    }
+    public function offsetSet($offset, $value): void { }
 
     /**
      * @inheritDoc
      */
-    public function offsetUnset($offset): void
-    {
-    }
+    public function offsetUnset($offset): void { }
 
     /**
-     * Récupération de la liste de tous les niveaux de messages supportés.
+     * Get list of supported levels.
      *
      * @return array<string, int>
      */
@@ -190,7 +182,7 @@ class MessagesBag implements MessagesBagInterface
     }
 
     /**
-     * Récupération de l'intitulé de qualification d'un niveau de traitement.
+     * Get the qualification title of a level from its processing level.
      *
      * @param int $level
      *
@@ -212,8 +204,7 @@ class MessagesBag implements MessagesBagInterface
     }
 
     /**
-     * Conversion d'un niveau de journalisation au format PSR-3.
-     * {@internal Hack en vue de la validation du niveau success}
+     * Converts PSR-3 levels to MessagesBag ones if necessary.
      *
      * @param string|int $level
      *
@@ -251,7 +242,7 @@ class MessagesBag implements MessagesBagInterface
     }
 
     /**
-     * Récupération de la liste des enregistrements collectés.
+     * Get list of collected records.
      *
      * @return Collection
      */
@@ -265,7 +256,7 @@ class MessagesBag implements MessagesBagInterface
     }
 
     /**
-     * Définition|Récupération|Instance des enregistrement.
+     * RecordsBag instance|Set a list of records|Get a record.
      *
      * @param array|string|null $key
      * @param mixed $default
@@ -287,9 +278,9 @@ class MessagesBag implements MessagesBagInterface
         }
 
         if (is_array($key)) {
-           $this->records->set($key);
+            $this->records->set($key);
 
-           return $this->records;
+            return $this->records;
         }
 
         throw new InvalidArgumentException('Invalid ParamsBag passed method arguments');
@@ -324,9 +315,11 @@ class MessagesBag implements MessagesBagInterface
      */
     public function all(): array
     {
-        return $this->collectedRecords()->groupBy('level')->map(function (Collection $item) {
-            return $item->toArray();
-        })->all();
+        return $this->collectedRecords()->groupBy('level')->map(
+            function (Collection $item) {
+                return $item->toArray();
+            }
+        )->all();
     }
 
     /**

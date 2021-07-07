@@ -9,7 +9,7 @@ use Pollen\Config\ConfiguratorInterface;
 interface ConfigProxyInterface
 {
     /**
-     * Instance du gestionnaire de configuration.
+     * Configurator instance|Set configuration attributes|Get a configuration attribute.
      *
      * @param array|string|null $key
      * @param mixed $default
@@ -19,7 +19,7 @@ interface ConfigProxyInterface
     public function config(?string $key = null, $default = null);
 
     /**
-     * Définition du gestionnaire de configuration.
+     * Set the configurator instance.
      *
      * @param ConfiguratorInterface $configurator
      *

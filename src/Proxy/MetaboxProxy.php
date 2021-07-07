@@ -15,12 +15,13 @@ use RuntimeException;
 trait MetaboxProxy
 {
     /**
-     * Instance du gestionnaire de metaboxes.
+     * Metabox manager instance.
+     * @var MetaboxManagerInterface|null
      */
     private ?MetaboxManagerInterface $metaboxManager = null;
 
     /**
-     * Instance du gestionnaire de metaboxes.
+     * Get the metabox manager instance.
      *
      * @return MetaboxManagerInterface
      */
@@ -42,7 +43,7 @@ trait MetaboxProxy
     }
 
     /**
-     * Définition de l'instance du gestionnaire de metaboxes.
+     * Set the metabox manager instance.
      *
      * @param MetaboxManagerInterface $metaboxManager
      *
