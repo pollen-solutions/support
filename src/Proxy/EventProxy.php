@@ -15,12 +15,13 @@ use RuntimeException;
 trait EventProxy
 {
     /**
-     * Instance du répartiteur d'événements.
+     * Event dispatcher instance.
+     * @var EventDispatcherInterface|null
      */
     private ?EventDispatcherInterface $eventDispatcher = null;
 
     /**
-     * Instance du répartiteur d'événements.
+     * Get the event dispatcher instance.
      *
      * @return EventDispatcherInterface
      */
@@ -42,7 +43,7 @@ trait EventProxy
     }
 
     /**
-     * Définition du gestionnaire de events.
+     * Set the event dispatcher instance.
      *
      * @param EventDispatcherInterface $eventDispatcher
      *

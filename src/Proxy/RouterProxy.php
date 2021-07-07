@@ -15,12 +15,13 @@ use RuntimeException;
 trait RouterProxy
 {
     /**
-     * Instance du gestionnaire de routage.
+     * Router instance.
+     * @var RouterInterface|null
      */
     private ?RouterInterface $router = null;
 
     /**
-     * Instance du gestionnaire de routage.
+     * Get the router instance.
      *
      * @return RouterInterface
      */
@@ -42,7 +43,7 @@ trait RouterProxy
     }
 
     /**
-     * Définition du gestionnaire de routage.
+     * Set the router instance.
      *
      * @param RouterInterface $router
      *

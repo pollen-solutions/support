@@ -17,12 +17,13 @@ use RuntimeException;
 trait MailProxy
 {
     /**
-     * Instance du gestionnaire de mail.
+     * Mail manager instance.
+     * @var MailManagerInterface|null
      */
     private ?MailManagerInterface $mailManager = null;
 
     /**
-     * Instance du gestionnaire de mail|Instance de mail.
+     * Retrieve the mail manager instance|Get a mailable instance if it exists.
      *
      * @param MailableInterface|string|array|null $mailable
      *
@@ -54,7 +55,7 @@ trait MailProxy
     }
 
     /**
-     * Définition du gestionnaire de mail.
+     * Set the mail manager instance.
      *
      * @param MailManagerInterface $mailManager
      *

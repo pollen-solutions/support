@@ -11,21 +11,21 @@ use Symfony\Component\HttpFoundation\Request as BaseRequest;
 interface HttpRequestProxyInterface
 {
     /**
-     * Instance de la requête HTTP.
+     * Get the HTTP request instance.
      *
      * @return RequestInterface|BaseRequest
      */
     public function httpRequest(): RequestInterface;
 
     /**
-     * Instance de la requête HTTP au format PSR-7.
+     * Get the PSR-7 HTTP request instance.
      *
      * @return PsrRequestInterface
      */
     public function httpPsrRequest(): PsrRequestInterface;
 
     /**
-     * Définition de la requête HTTP.
+     * Set the HTTP request instance.
      *
      * @param RequestInterface $httpRequest
      *

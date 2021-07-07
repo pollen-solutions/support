@@ -9,7 +9,7 @@ use Pollen\Support\MessagesBag;
 interface MessagesBagAwareTraitInterface
 {
     /**
-     * Définition d'un message|Instance du gestionnaire de message.
+     * MessagesBag instance|Set a new message.
      *
      * @param string|null $message
      * @param string|int $level
@@ -20,7 +20,7 @@ interface MessagesBagAwareTraitInterface
     public function messages(?string $message = null, $level = MessagesBag::ERROR, array $datas = []);
 
     /**
-     * Définition de l'instance du gestionnaire de messages.
+     * Set the MessagesBag instance.
      *
      * @param MessagesBag $messagesBag
      *

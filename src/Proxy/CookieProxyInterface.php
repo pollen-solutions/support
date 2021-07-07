@@ -10,7 +10,7 @@ use Pollen\Cookie\CookieJarInterface;
 interface CookieProxyInterface
 {
     /**
-     * Instance du gestionnaire de cookies|Instance d'un cookie.
+     * Retrieve the cookie jar instance|Get a cookie instance.
      *
      * @param string|null $alias
      *
@@ -19,7 +19,7 @@ interface CookieProxyInterface
     public function cookie(?string $alias = null);
 
     /**
-     * Définition du gestionnaire de cookies.
+     * Set the CookieJar instance.
      *
      * @param CookieJarInterface $cookieJar
      *

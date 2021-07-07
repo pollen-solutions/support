@@ -9,14 +9,14 @@ use Pollen\Console\ConsoleInterface;
 interface ConsoleProxyInterface
 {
     /**
-     * Get Console manager instance.
+     * Get console manager instance.
      *
      * @return ConsoleInterface
      */
     public function console();
 
     /**
-     * Set Console manager instance
+     * Set console manager instance.
      *
      * @param ConsoleInterface $console
      *

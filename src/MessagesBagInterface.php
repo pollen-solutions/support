@@ -12,14 +12,14 @@ use JsonSerializable;
 interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
     /**
-     * Récupération de la liste complète des enregistrements
+     * List of all records.
      *
      * @return array
      */
     public function all(): array;
 
     /**
-     * Ajout d'un message de notification.
+     * Add a new record.
      *
      * @param int $level
      * @param string $message
@@ -31,7 +31,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function addRecord(int $level, string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Récupération de la liste complète des messages|associés à un niveau.
+     * List of all messages or for a specific level.
      *
      * @param int|null $level
      *
@@ -40,7 +40,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function allMessages(?int $level = null): array;
 
     /**
-     * Récupération de la liste complète des codes|associés à un niveau.
+     * List of all codes or for a specific level.
      *
      * @param int|null $level
      *
@@ -49,7 +49,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function allCodes(?int $level = null): array;
 
     /**
-     * Récupération de la liste complète des données de contexte|associées à un niveau.
+     * List of all context datas or for a specific level.
      *
      * @param int|null $level
      *
@@ -58,7 +58,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function allContexts(?int $level = null): array;
 
     /**
-     * Récupère le nombre total d'enregistrements|associées à un niveau.
+     * Get count of records or for a specific level.
      *
      * @param int|null $level
      *
@@ -67,7 +67,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function count(?int $level = null): int;
 
     /**
-     * Vérification l'existence d'enregistrement|associées à un niveau.
+     * Check if records exists or exists for a specific level.
      *
      * @param int|null $level
      *
@@ -76,7 +76,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function exists(?int $level = null): bool;
 
     /**
-     * Vérification d'existence d'enregistrements répondant à des données de contexte, limité à un niveau (en option).
+     * Check if records exists for list of context datas or exists for a specific level.
      *
      * @param array $context
      * @param int|null $level
@@ -86,26 +86,26 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function existsForContext(array $context, ?int $level = null): bool;
 
     /**
-     * Retrouve la liste des enregistrements, pouvant être associé à un niveau et un code.
+     * Retrieve list of records possibly for a level and/or a code.
      *
      * @param int|null $level
-     * @param string|null $code
+     * @param string|int|null $code
      *
      * @return array
      */
     public function fetch(?int $level = null, $code = null): array;
 
     /**
-     * Retrouve la liste des messages formatés selon une liste de niveau fournies.
+     * Retrieve list of records for a list of levels.
      *
-     * @param string[]|int[] $levelsMap Cartographie des niveaux de retour.
+     * @param string[]|int[] $levelsMap
      *
      * @return string[][]
      */
     public function fetchMessages(array $levelsMap = []): array;
 
     /**
-     * Réinitialisation des enregistrements.
+     * Reset entire list of records or just for a specific level.
      *
      * @param int|null $level
      *
@@ -114,7 +114,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function flush(?int $level = null): MessagesBagInterface;
 
     /**
-     * Liste des enregistrements répondant à des données de contexte, limité à un niveau (en option).
+     * Get list of records for list of context datas and possibly for a specific level.
      *
      * @param array $context
      * @param int|null $level
@@ -124,7 +124,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function getForContext(array $context, ?int $level = null): array;
 
     /**
-     * Récupération de la liste complète des codes associés à un niveau.
+     * Get list of codes for a specific level.
      *
      * @param int $level
      *
@@ -133,27 +133,27 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function getLevelCodes(int $level): array;
 
     /**
-     * Récupération de la liste complète des données de contexte associées à un niveau et un code (en option).
+     * Get list of context datas for a specific level and possibly for a specific code.
      *
      * @param int $level
-     * @param string|null $code
+     * @param string|int|null $code
      *
      * @return array
      */
     public function getLevelContexts(int $level, $code = null): array;
 
     /**
-     * Récupération de la liste complète des messages associés à un niveau et un code (en option).
+     * Get list of messages for a specific level and possibly for a specific code..
      *
      * @param int $level
-     * @param string|null $code
+     * @param string|int|null $code
      *
      * @return array
      */
     public function getLevelMessages(int $level, $code = null): array;
 
     /**
-     * Vérification d'existence d'un niveau.
+     * Check if level exists.
      *
      * @param int $level
      *
@@ -162,7 +162,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function hasLevel(int $level): bool;
 
     /**
-     * Vérification d'existence d'un nom de qualification de niveau.
+     * Check if level name exists.
      *
      * @param string $levelName
      *
@@ -171,7 +171,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function hasLevelName(string $levelName): bool;
 
     /**
-     * Vérification de prise en charge du niveau de notification.
+     * Check if level is handled.
      *
      * @param int $level
      *
@@ -180,14 +180,14 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function isHandling(int $level): bool;
 
     /**
-     * Récupération de la liste des enregistrement au format json.
+     * Get list of records in JSON format.
      *
      * @return string
      */
     public function json(): string;
 
     /**
-     * Définition du niveau de notification de récupération des messages.
+     * Set level handling.
      *
      * @param int $level
      *
@@ -196,7 +196,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function setHandlingLevel(int $level): MessagesBagInterface;
 
     /**
-     * Ajout d'un message d'alerte.
+     * Add an alert message.
      *
      * @param string $message
      * @param array|null $context
@@ -207,7 +207,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function alert(string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message de condition critique.
+     * Add a critical message.
      *
      * @param string $message
      * @param array|null $context
@@ -218,7 +218,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function critical(string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message de deboguage.
+     * Add a debug message.
      *
      * @param string $message
      * @param array|null $context
@@ -229,7 +229,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function debug(string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message d'urgence.
+     * Add an emergency message.
      *
      * @param string $message
      * @param array|null $context
@@ -240,7 +240,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function emergency(string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message d'erreur.
+     * Add an erro message.
      *
      * @param string $message
      * @param array|null $context
@@ -251,7 +251,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function error(string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message d'information.
+     * Add an information message.
      *
      * @param string $message
      * @param array|null $context
@@ -262,7 +262,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function info(string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message de niveau arbitraire.
+     * Adds a message at an arbitrary level.
      *
      * @param string|int $level
      * @param string $message
@@ -274,7 +274,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function log($level, string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message de notification.
+     * Add a notice message.
      *
      * @param string $message
      * @param array|null $context
@@ -285,7 +285,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function notice(string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message de succès.
+     * Ajout a success message.
      *
      * @param string $message
      * @param array|null $context
@@ -296,7 +296,7 @@ interface MessagesBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function success(string $message = '', ?array $context = null, ?string $code = null): array;
 
     /**
-     * Ajout d'un message d'avertissement.
+     * Add a warning message.
      *
      * @param string $message
      * @param array|null $context

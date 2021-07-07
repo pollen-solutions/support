@@ -9,14 +9,14 @@ use Pollen\Routing\RouterInterface;
 interface RouterProxyInterface
 {
     /**
-     * Instance du gestionnaire de routage.
+     * Get the router instance.
      *
      * @return RouterInterface
      */
     public function router(): RouterInterface;
 
     /**
-     * Définition du gestionnaire de routage.
+     * Set the router instance.
      *
      * @param RouterInterface $router
      *

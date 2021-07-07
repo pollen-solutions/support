@@ -15,12 +15,13 @@ use RuntimeException;
 trait DebugProxy
 {
     /**
-     * Instance du gestionnaire de débogage.
+     * Debug manager instance.
+     * @var DebugManagerInterface|null
      */
     private ?DebugManagerInterface $debugManager = null;
 
     /**
-     * Instance du gestionnaire de débogage.
+     * Get debug manager instance.
      *
      * @return DebugManagerInterface
      */
@@ -42,7 +43,7 @@ trait DebugProxy
     }
 
     /**
-     * Définition du gestionnaire de débogage.
+     * Set debug manager instance.
      *
      * @param DebugManagerInterface $debugManager
      *

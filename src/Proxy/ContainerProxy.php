@@ -13,14 +13,15 @@ use Psr\Container\ContainerInterface as Container;
 trait ContainerProxy
 {
     /**
-     * Instance du conteneur d'injection de dépendances.
+     * Dependency injection container instance.
+     * @var Container|null
      */
     private ?Container $container = null;
 
     /**
-     * Ajout d'un service fourni par le conteneur d'injection de dépendances.
+     * Add a service provided by the dependency injection container.
      *
-     * @param string $alias Alias de qualification du service.
+     * @param string $alias
      * @param mixed|null $concrete
      * @param bool $share
      *
@@ -35,9 +36,9 @@ trait ContainerProxy
     }
 
     /**
-     * Vérification de disponibilité d'un service fourni par le conteneur d'injection de dépendances.
+     * Check if a service provided by the dependency injection container exists.
      *
-     * @param string $alias Alias de qualification du service.
+     * @param string $alias
      *
      * @return bool
      */
@@ -47,9 +48,9 @@ trait ContainerProxy
     }
 
     /**
-     * Récupération d'un service fourni par le conteneur d'injection de dépendances.
+     * Get a service provided by the dependency injection container.
      *
-     * @param string $alias Alias de qualification du service.
+     * @param string $alias
      *
      * @return mixed|null
      */
@@ -59,7 +60,7 @@ trait ContainerProxy
     }
 
     /**
-     * Récupération de l'instance du conteneur d'injection de dépendances.
+     * Get the dependency injection container instance.
      *
      * @return Container|null
      */
@@ -69,7 +70,7 @@ trait ContainerProxy
     }
 
     /**
-     * Définition du conteneur d'injection de dépendances.
+     * Set the dependency injection container instance.
      *
      * @param Container $container
      *

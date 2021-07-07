@@ -15,10 +15,14 @@ use RuntimeException;
  */
 trait AppProxy
 {
+    /**
+     * Kernel application instance.
+     * @var \Pollen\Kernel\ApplicationInterface|null
+     */
     private ?ApplicationInterface $app = null;
 
     /**
-     * Resolve App Instance or service served by container.
+     * Resolve Kernel application instance|Service served by the Kernel application.
      *
      * @param string|null $serviceName
      *
@@ -50,7 +54,7 @@ trait AppProxy
     }
 
     /**
-     * Set App instance.
+     * Set Kernel application instance.
      *
      * @param ApplicationInterface $app
      *

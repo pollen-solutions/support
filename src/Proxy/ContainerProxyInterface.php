@@ -10,9 +10,9 @@ use Psr\Container\ContainerInterface as Container;
 interface ContainerProxyInterface
 {
     /**
-     * Ajout d'un service fourni par le conteneur d'injection de dépendances.
+     * Add a service provided by the dependency injection container.
      *
-     * @param string $alias Alias de qualification du service.
+     * @param string $alias
      * @param mixed|null $concrete
      * @param bool $share
      *
@@ -21,32 +21,32 @@ interface ContainerProxyInterface
     public function containerAdd(string $alias, $concrete = null, bool $share = false): ?DefinitionInterface;
 
     /**
-     * Vérification de disponibilité d'un service fourni par le conteneur d'injection de dépendances.
+     * Check if a service provided by the dependency injection container exists.
      *
-     * @param string $alias Alias de qualification du service.
+     * @param string $alias
      *
      * @return bool
      */
     public function containerHas(string $alias): bool;
 
     /**
-     * Récupération d'un service fourni par le conteneur d'injection de dépendances.
+     * Get a service provided by the dependency injection container.
      *
-     * @param string $alias Alias de qualification du service.
+     * @param string $alias
      *
      * @return mixed|null
      */
     public function containerGet(string $alias);
 
     /**
-     * Récupération de l'instance du conteneur d'injection de dépendances.
+     * Get the dependency injection container instance.
      *
      * @return Container|null
      */
     public function getContainer(): ?Container;
 
     /**
-     * Définition du conteneur d'injection de dépendances.
+     * Set the dependency injection container instance.
      *
      * @param Container $container
      *

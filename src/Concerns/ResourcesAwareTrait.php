@@ -15,19 +15,19 @@ use ReflectionException;
 trait ResourcesAwareTrait
 {
     /**
-     * Chemin relatif vers le répertoire des ressources.
+     * Relative path to the resource directory.
      * @var string|null
      */
-    protected $resourcesBasePath = '../resources';
+    protected ?string $resourcesBasePath = '../resources';
 
     /**
-     * Chemin absolu vers le répertoire des ressources.
+     * Absolute path to the resource directory.
      * @var string|null
      */
-    protected $resourcesBaseDir;
+    protected ?string $resourcesBaseDir = null;
 
     /**
-     * Chemin absolu vers une ressource (fichier|répertoire).
+     * Get the absolute path to the resource directory.
      *
      * @param string|null $path
      *
@@ -64,7 +64,7 @@ trait ResourcesAwareTrait
     }
 
     /**
-     * Définition du chemin absolu vers le répertoire des ressources.
+     * Set the absolute path to the resource directory.
      *
      * @param string $resourceBaseDir
      *
@@ -76,7 +76,7 @@ trait ResourcesAwareTrait
     }
 
     /**
-     * Normalisation d'un chemin vers un répertoire.
+     * Resources path normalization.
      *
      * @param string $path
      *

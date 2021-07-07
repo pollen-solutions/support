@@ -10,18 +10,18 @@ use Pollen\Partial\PartialManagerInterface;
 interface PartialProxyInterface
 {
     /**
-     * Instance du gestionnaire de portions d'affichage|Instance d'une portion d'affichage.
+     * Retrieve the partial manager instance|Get a partial instance if it exists.
      *
-     * @param string|null $alias Alias de qualification.
-     * @param mixed $idOrParams Identifiant de qualification|Liste des attributs de configuration.
-     * @param array|null $params Liste des attributs de configuration.
+     * @param string|null $alias
+     * @param mixed $idOrParams
+     * @param array|null $params
      *
      * @return PartialManagerInterface|PartialDriverInterface
      */
     public function partial(?string $alias = null, $idOrParams = null, ?array $params = null);
 
     /**
-     * Définition du gestionnaire de portions d'affichage.
+     * Set the partial manager instance.
      *
      * @param PartialManagerInterface $partialManager
      *

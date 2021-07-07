@@ -9,14 +9,14 @@ use Pollen\Encryption\EncrypterInterface;
 interface EncrypterProxyInterface
 {
     /**
-     * Instance du gestionnaire d'encryptage.
+     * Get the encrypter instance.
      *
      * @return EncrypterInterface
      */
     public function encrypter(): EncrypterInterface;
 
     /**
-     * Décryptage d'une chaîne de caractères.
+     * Decrypt an hashed character string.
      *
      * @param string $hash
      *
@@ -25,7 +25,7 @@ interface EncrypterProxyInterface
     public function decrypt(string $hash): string;
 
     /**
-     * Encryptage d'une chaîne de caractères.
+     * Encrypt character string.
      *
      * @param string $plain
      *
@@ -34,7 +34,7 @@ interface EncrypterProxyInterface
     public function encrypt(string $plain): string;
 
     /**
-     * Définition du gestionnaire d'encryptage.
+     * Set the encrypter instance.
      *
      * @param EncrypterInterface $encrypter
      *

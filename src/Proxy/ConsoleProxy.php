@@ -21,7 +21,7 @@ trait ConsoleProxy
     private ?ConsoleInterface $console = null;
 
     /**
-     * Get Console manager instance.
+     * Get console manager instance.
      *
      * @return ConsoleInterface
      */
@@ -43,7 +43,7 @@ trait ConsoleProxy
     }
 
     /**
-     * Set Console manager instance
+     * Set console manager instance.
      *
      * @param ConsoleInterface $console
      *

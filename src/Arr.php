@@ -10,7 +10,7 @@ use Pollen\Validation\Validator as v;
 class Arr extends BaseArr
 {
     /**
-     * Insertion d'un tableau après une clé d'indice
+     * Insert an array after an existing array key.
      * @see https://gist.github.com/wpscholar/0deadce1bbfa4adb4e4c
      *
      * @param array $array
@@ -33,11 +33,11 @@ class Arr extends BaseArr
     }
 
     /**
-     * Serialisation de données si nécessaire.
+     * Serialize the data if necessary.
      *
      * @param string|array|object $data
      *
-     * @return mixed
+     * @return array|object|string
      */
     public static function serialize($data)
     {
@@ -53,7 +53,7 @@ class Arr extends BaseArr
     }
 
     /**
-     * Suppression des slashes.
+     * Removing slashes.
      *
      * @param string|array|object $data
      *

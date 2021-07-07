@@ -9,6 +9,10 @@ use Illuminate\Support\Env as BaseEnv;
 
 class Env extends BaseEnv
 {
+    /**
+     * Environment loader instance.
+     * @var Dotenv|null
+     */
     protected static ?Dotenv $loader = null;
 
     /**
@@ -27,7 +31,7 @@ class Env extends BaseEnv
     }
 
     /**
-     * Vérifie si l'environnement d'éxecution est en développement.
+     * Checks if the execution environment is the development one.
      *
      * @return bool
      */
@@ -37,7 +41,7 @@ class Env extends BaseEnv
     }
 
     /**
-     * Vérifie si l'environnement d'éxecution est en production.
+     * Checks if the execution environment is the production one.
      *
      * @return bool
      */
@@ -47,7 +51,7 @@ class Env extends BaseEnv
     }
 
     /**
-     * Vérifie si l'environnement d'éxecution est en recette.
+     * Checks if the execution environment is the staging one.
      *
      * @return bool
      */
