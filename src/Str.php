@@ -11,13 +11,13 @@ use Pollen\Validation\Validator as v;
 class Str extends BaseStr
 {
     /**
-     * Création d'un extrait de texte basé sur les nombre de caractères.
+     * Create an excerpt of a character string.
      *
-     * @param string $string Chaîne de caractère à traiter.
-     * @param int $length Nombre maximum de caractères de la chaîne.
-     * @param string $teaser Délimiteur de fin de chaîne réduite (defaut : [...]).
-     * @param boolean $use_tag Détection d'une balise d'arrêt du type <!--more-->.
-     * @param boolean $uncut Préservation de la découpe de mots en fin de chaîne.
+     * @param string $string
+     * @param int $length
+     * @param string $teaser
+     * @param boolean $use_tag
+     * @param boolean $uncut
      *
      * @return string
      */
@@ -62,7 +62,7 @@ class Str extends BaseStr
     }
 
     /**
-     * Compatibilité textarea.
+     * Textarea field text compatibility.
      *
      * @param string $text
      *
@@ -82,7 +82,7 @@ class Str extends BaseStr
     }
 
     /**
-     * Fermeture des balise HTML non fermée.
+     * Auto-close unclosed HTML tags.
      *
      * @param $html
      *
@@ -116,15 +116,15 @@ class Str extends BaseStr
     }
 
     /**
-     * Convertion des variables d'environnements d'une chaîne de caractères.
+     * Converts environment variables from a character string or a list of character string.
      *
-     * @param $output
+     * @param string|string[] $output
      * @param array $vars
-     * @param string $regex
+     * @param string $pattern
      *
-     * @return null|string|string[]
+     * @return string|string[]|null
      */
-    public static function mergeVars($output, $vars = [], $regex = "/\*\|(.*?)\|\*/")
+    public static function mergeVars($output, array $vars = [], string $pattern = "/\*\|(.*?)\|\*/")
     {
         $callback = function ($matches) use ($vars) {
             if (!isset($matches[1])) {
@@ -138,13 +138,11 @@ class Str extends BaseStr
             return $matches[0];
         };
 
-        $output = preg_replace_callback($regex, $callback, $output);
-
-        return $output;
+        return preg_replace_callback($pattern, $callback, $output);
     }
 
     /**
-     * Déserialisation d'un chaine de caractère.
+     * Unserialize a character string.
      *
      * @param string $value
      *
@@ -154,7 +152,7 @@ class Str extends BaseStr
     {
         if (v::serialized()->validate($value)) {
             try {
-                $unserialized = @unserialize($value);
+                $unserialized = @unserialize($value, ['allowed_classes' => true]);
             } catch(Error $e) {
                 return $value;
             }

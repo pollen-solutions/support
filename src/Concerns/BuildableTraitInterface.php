@@ -7,13 +7,14 @@ namespace Pollen\Support\Concerns;
 interface BuildableTraitInterface
 {
     /**
-     * Vérification de l'état d'initialisation.
+     * Check if build status is enabled.
+     *
      * @return bool
      */
     public function isBuilt(): bool;
 
     /**
-     * Définition de l'état d'initialisation.
+     * Set the build status.
      *
      * @param bool $built
      *

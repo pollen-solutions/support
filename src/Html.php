@@ -10,27 +10,31 @@ use Throwable;
 class Html
 {
     /**
+     * Double encoding indicator.
      * @var bool
      */
     protected bool $escDoubleEncode = true;
 
     /**
+     * Encoding charset.
      * @var string
      */
     protected string $escEncoding = 'UTF-8';
 
     /**
+     * Encoding flag.
      * @var int
      */
     protected int $escFlags = ENT_QUOTES;
 
     /**
+     * As JSON HTML attribute processing defined in array indicator.
      * @var bool
      */
     protected bool $tagJson = false;
 
     /**
-     * Conversion des caractères spéciaux.
+     * Convert special characters.
      *
      * @param string|bool|array|object $value
      *
@@ -61,7 +65,7 @@ class Html
     }
 
     /**
-     * Linéarisation des attributs de balises HTML.
+     * Linearization of HTML tag attributes.
      *
      * @param array $attr
      *
@@ -73,7 +77,7 @@ class Html
     }
 
     /**
-     * Encodage des caractères spéciaux.
+     * Convert special characters to HTML entities.
      *
      * @param string $value
      *
@@ -85,7 +89,7 @@ class Html
     }
 
     /**
-     * Formatage des attributs de balise HTML.
+     * Formatting HTML Tag Attributes.
      *
      * @param array $attrs
      * @param bool $linearized
@@ -103,7 +107,7 @@ class Html
     }
 
     /**
-     * Définition du double encodage lors de la conversion des caractères spéciaux.
+     * Set double encoding when converting special characters.
      *
      * @param bool $doubleEncode
      *
@@ -117,7 +121,7 @@ class Html
     }
 
     /**
-     * Définition du l'encodage des caractères lors de la conversion des caractères spéciaux.
+     * Set the character encoding when converting special characters.
      *
      * @param string $encoding
      *
@@ -131,7 +135,7 @@ class Html
     }
 
     /**
-     * Définition du masque bit de traitement de la conversion des caractères spéciaux.
+     * Set the processing bit mask for the conversion of special characters.
      *
      * @param int $flags
      *
@@ -145,7 +149,8 @@ class Html
     }
 
     /**
-     * Définition de l'encodage de traitement des tableaux|objets passés en attributs de balise HTML.
+     * Set HTML attribute processing defined in array.
+     * {@internal to JSON if true, to URL if false.}
      *
      * @param bool $json
      *
@@ -159,8 +164,8 @@ class Html
     }
 
     /**
-     * Encodage au format JSON.
-     *{@internal La valeur de retour est exploitable en JS avec JSON.parse({{ value }})}
+     * Encoding in JSON format.
+     * {@internal The return value can be used in JS with JSON.parse({{value}})}
      *
      * @param array $value
      *
@@ -176,8 +181,8 @@ class Html
     }
 
     /**
-     * Encodage au format URL.
-     * {@internal La valeur de retour est exploitable en JS avec JSON.parse(decodeURIComponent({{ value }})}
+     * URL encoding.
+     * {@internal The return value can be used in JS with JSON.parse(decodeURIComponent ({{value}})}
      *
      * @param array $value
      *
@@ -189,7 +194,7 @@ class Html
     }
 
     /**
-     * Conversion d'un d'attribut en attribut HTML.
+     * Transform an attribute to an HTML attribute.
      *
      * @param string|numeric|array $value
      * @param int|string $key
@@ -202,6 +207,6 @@ class Html
             $value = $this->tagJson ? $this->escape($this->jsonEncode($value)) : $this->urlEncode($value);
         }
 
-        return is_numeric($key) ? (string)$value : "{$key}=\"{$value}\"";
+        return is_numeric($key) ? (string)$value : "$key=\"$value\"";
     }
 }

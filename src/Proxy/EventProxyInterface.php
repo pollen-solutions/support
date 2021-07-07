@@ -9,14 +9,14 @@ use Pollen\Event\EventDispatcherInterface;
 interface EventProxyInterface
 {
     /**
-     * Instance du répartiteur d'événements.
+     * Get the event dispatcher instance.
      *
      * @return EventDispatcherInterface
      */
     public function event(): EventDispatcherInterface;
 
     /**
-     * Définition du gestionnaire de events.
+     * Set the event dispatcher instance.
      *
      * @param EventDispatcherInterface $eventDispatcher
      *

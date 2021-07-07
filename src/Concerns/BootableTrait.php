@@ -10,13 +10,13 @@ namespace Pollen\Support\Concerns;
 trait BootableTrait
 {
     /**
-     * État de chargement.
+     * Booting status.
      * @var bool
      */
-    private $booted = false;
+    private bool $booted = false;
 
     /**
-     * Vérification de l'état de chargement.
+     * Check if the boot status is enabled.
      *
      * @return bool
      */
@@ -26,7 +26,7 @@ trait BootableTrait
     }
 
     /**
-     * Définition de l'état de chargement.
+     * Set the boot status.
      *
      * @param bool $booted
      *

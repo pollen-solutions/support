@@ -10,13 +10,15 @@ use Exception;
 class DateTime extends Carbon
 {
     /**
-     * Format de date par défaut
+     * Default date format.
      * @var string
      */
-    protected static $defaultFormat = 'Y-m-d H:i:s';
+    protected static string $defaultFormat = 'Y-m-d H:i:s';
 
     /**
-     * @inheritDoc
+     * Resolve the class as a string and return the date in default format.
+     *
+     * @return string
      */
     public function __toString(): string
     {
@@ -24,7 +26,7 @@ class DateTime extends Carbon
     }
 
     /**
-     * Définition du format d'affichage par défault de la date.
+     * Set the default date format.
      *
      * @param string $format
      *
@@ -36,10 +38,10 @@ class DateTime extends Carbon
     }
 
     /**
-     * Récupération de la date locale pour un format donné.
+     * Get the local date for a given or default format.
      *
-     * @param string|null $format Format d'affichage de la date.
-     * @param string|null $locale ex. en|en_GB|fr ...
+     * @param string|null $format
+     * @param string|null
      *
      * @return string
      */
@@ -58,9 +60,9 @@ class DateTime extends Carbon
     }
 
     /**
-     * Récupération de la date basée sur le temps universel pour un format donné.
+     * Get the UTC date for a given or default format.
      *
-     * @param string|null $format Format d'affichage de la date. MySQL par défaut.
+     * @param string|null $format
      *
      * @return string|null
      */

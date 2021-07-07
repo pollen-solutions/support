@@ -17,16 +17,17 @@ use RuntimeException;
 trait PartialProxy
 {
     /**
-     * Instance du gestionnaire de portions d'affichage.
+     * Partial manager instance.
+     * @var PartialManagerInterface|null
      */
     private ?PartialManagerInterface $partialManager = null;
 
     /**
-     * Instance du gestionnaire de portions d'affichage|Instance d'une portion d'affichage.
+     * Retrieve the partial manager instance|Get a partial instance if it exists.
      *
-     * @param string|null $alias Alias de qualification.
-     * @param mixed $idOrParams Identifiant de qualification|Liste des attributs de configuration.
-     * @param array|null $params Liste des attributs de configuration.
+     * @param string|null $alias
+     * @param mixed $idOrParams
+     * @param array|null $params
      *
      * @return PartialManagerInterface|PartialDriverInterface
      */
@@ -56,7 +57,7 @@ trait PartialProxy
     }
 
     /**
-     * Définition du gestionnaire de portions d'affichage.
+     * Set the partial manager instance.
      *
      * @param PartialManagerInterface $partialManager
      *

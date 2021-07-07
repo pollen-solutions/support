@@ -10,14 +10,14 @@ use InvalidArgumentException;
 interface ConfigBagAwareTraitInterface
 {
     /**
-     * Liste des paramètres de configuration par défaut.
+     * List of default configuration attributes.
      *
      * @return array
      */
     public function defaultConfig(): array;
 
     /**
-     * Définition|Récupération|Instance des paramètres de configuration.
+     * Instance of ConfigBag|Set a list of configuration attributes|Get a configuration attribute value.
      *
      * @param array|string|null $key
      * @param mixed $default
@@ -29,18 +29,18 @@ interface ConfigBagAwareTraitInterface
     public function config($key = null, $default = null);
 
     /**
-     * Traitement de la liste des paramètres de configuration.
+     * Parse the entire list of configuration attributes.
      *
      * @return void
      */
     public function parseConfig(): void;
 
     /**
-     * Définition de la liste des paramètres de configuration.
+     * Set a list of configuration attributes.
      *
-     * @param array $params
+     * @param array $configAttrs
      *
      * @return void
      */
-    public function setConfig(array $params): void;
+    public function setConfig(array $configAttrs): void;
 }

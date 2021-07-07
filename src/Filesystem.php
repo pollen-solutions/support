@@ -59,19 +59,19 @@ use Throwable;
 class Filesystem
 {
     /**
-     * Séparateur de répertoire
+     * System directory separator.
      * @var string
      */
     public const DS = DIRECTORY_SEPARATOR;
 
     /**
-     * Instance du gestionnaire de système de fichier de Composer.
+     * Delegate Filesystem instance.
      * @var ComposerFs|object|null
      */
     protected static $delegateFs;
 
     /**
-     * Délégation d'appel des méthodes du système de fichier de composer.
+     * Delegation file system method call.
      *
      * @param string $method
      * @param array $arguments
@@ -105,7 +105,7 @@ class Filesystem
     }
 
     /**
-     * Récupération  de l'instance de délégation de gestion de système de fichier.
+     * Get delegate Filesystem instance.
      *
      * @return SymfonyFs|DelegateFilesystemInterface
      */
@@ -118,7 +118,7 @@ class Filesystem
     }
 
     /**
-     * Définition de l'instance de délégation de gestion de système de fichier.
+     * Set delegate Filesystem instance.
      *
      * @param DelegateFilesystemInterface $delegateFs
      *

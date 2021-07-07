@@ -12,13 +12,13 @@ use Pollen\Support\MessagesBag;
 trait MessagesBagAwareTrait
 {
     /**
-     * Instance du gestionnaire des messages.
+     * MessagesBag instance.
      * @var MessagesBag|null
      */
     private ?MessagesBag $messagesBag = null;
 
     /**
-     * Définition d'un message|Instance du gestionnaire de message.
+     * MessagesBag instance|Set a new message.
      *
      * @param string|null $message
      * @param string|int $level
@@ -42,7 +42,7 @@ trait MessagesBagAwareTrait
     }
 
     /**
-     * Définition de l'instance du gestionnaire de messages.
+     * Set the MessagesBag instance.
      *
      * @param MessagesBag $messagesBag
      *

@@ -17,7 +17,7 @@ trait ParamsBagDelegateTrait
     use ParamsBagAwareTrait;
 
     /**
-     * Délégation d'appel des méthodes du ParamBag.
+     * Delegate call of a ParamsBag method.
      *
      * @param string $method
      * @param array $arguments

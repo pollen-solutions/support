@@ -7,14 +7,14 @@ namespace Pollen\Support\Concerns;
 interface BootableTraitInterface
 {
     /**
-     * Vérification de l'état de chargement.
+     * Check if the boot status is enabled.
      *
      * @return bool
      */
     public function isBooted(): bool;
 
     /**
-     * Définition de l'état de chargement.
+     * Set the boot status.
      *
      * @param bool $booted
      *

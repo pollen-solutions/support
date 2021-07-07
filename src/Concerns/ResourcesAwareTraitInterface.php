@@ -7,7 +7,7 @@ namespace Pollen\Support\Concerns;
 interface ResourcesAwareTraitInterface
 {
     /**
-     * Chemin absolu vers une ressource (fichier|répertoire).
+     * Get the absolute path to the resource directory.
      *
      * @param string|null $path
      *
@@ -16,7 +16,7 @@ interface ResourcesAwareTraitInterface
     public function resources(?string $path = null): string;
 
     /**
-     * Définition du chemin absolu vers le répertoire racine des ressources.
+     * Set the absolute path to the resource directory.
      *
      * @param string $resourceBaseDir
      *

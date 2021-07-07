@@ -19,12 +19,13 @@ use Exception;
 trait DbProxy
 {
     /**
-     * Instance du gestionnaire de base de données.
+     * Database manager instance.
+     * @var DatabaseManagerInterface|null
      */
     private ?DatabaseManagerInterface $dbManager = null;
 
     /**
-     * Instance du gestionnaire de base de données|Gestionnaire de requête d'une table de la base de données.
+     * Retrieve database manager instance|Get the query builder for a specific table.
      *
      * @param string|null $dbTable
      *
@@ -56,7 +57,7 @@ trait DbProxy
     }
 
     /**
-     * Instance du constructeur de base de données.
+     * Get instance of database schema builder.
      *
      * @param string $name
      *
@@ -68,7 +69,7 @@ trait DbProxy
     }
 
     /**
-     * Définition du gestionnaire de base de données.
+     * Set database manager instance.
      *
      * @param DatabaseManagerInterface $dbManager
      *

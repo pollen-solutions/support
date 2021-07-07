@@ -9,14 +9,14 @@ use Pollen\Session\SessionManagerInterface;
 interface SessionProxyInterface
 {
     /**
-     * Instance du gestionnaire de sessions.
+     * Get the session manager instance.
      *
      * @return SessionManagerInterface
      */
     public function session(): SessionManagerInterface;
 
     /**
-     * Définition du gestionnaire de sessions.
+     * Set the session manager instance.
      *
      * @param SessionManagerInterface $sessionManager
      *

@@ -9,7 +9,7 @@ use Pollen\Faker\FakerInterface;
 Interface FakerProxyInterface
 {
     /**
-     * Get Faker instance|Return a modifier call.
+     * Get faker instance|Return a modifier call.
      *
      * @param string|null $modifier
      * @param ...$args
@@ -19,7 +19,7 @@ Interface FakerProxyInterface
     public function faker(?string $modifier = null, ...$args);
 
     /**
-     * Set Faker instance.
+     * Set faker instance.
      *
      * @param FakerInterface $faker
      *

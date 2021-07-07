@@ -17,16 +17,17 @@ use RuntimeException;
 trait FieldProxy
 {
     /**
-     * Instance du gestionnaire de champs.
+     * Field manager instance.
+     * @var FieldManagerInterface|null
      */
     private ?FieldManagerInterface $fieldManager = null;
 
     /**
-     * Instance du gestionnaire de champs|Instance d'un champs.
+     * Retrieve the field manager instance|Get field instance if it exists.
      *
-     * @param string|null $alias Alias de qualification.
-     * @param mixed $idOrParams Identifiant de qualification|Liste des attributs de configuration.
-     * @param array|null $params Liste des attributs de configuration.
+     * @param string|null $alias
+     * @param mixed $idOrParams
+     * @param array|null $params
      *
      * @return FieldManagerInterface|FieldDriverInterface
      */
@@ -56,7 +57,7 @@ trait FieldProxy
     }
 
     /**
-     * Définition du gestionnaire de champs.
+     * Set the field manager instance.
      *
      * @param FieldManagerInterface $fieldManager
      *

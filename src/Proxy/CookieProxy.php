@@ -17,12 +17,13 @@ use RuntimeException;
 trait CookieProxy
 {
     /**
-     * Instance du gestionnaire de cookies.
+     * CookieJar instance.
+     * @var CookieJarInterface|null
      */
-    private ?CookieJar $cookieJar = null;
+    private ?CookieJarInterface $cookieJar = null;
 
     /**
-     * Instance du gestionnaire de cookies|Instance d'un cookie.
+     * Retrieve the cookie jar instance|Get a cookie instance.
      *
      * @param string|null $alias
      *
@@ -54,7 +55,7 @@ trait CookieProxy
     }
 
     /**
-     * Définition du gestionnaire de cookies.
+     * Set the CookieJar instance.
      *
      * @param CookieJarInterface $cookieJar
      *

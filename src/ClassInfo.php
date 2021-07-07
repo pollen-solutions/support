@@ -16,15 +16,16 @@ use Throwable;
 class ClassInfo
 {
     /**
-     * Listes des classes.
+     * List of registred reflection classes.
      * @var ReflectionClass[]|array
      */
-    protected static $reflectionClasses = [];
+    protected static array $reflectionClasses = [];
 
     /**
+     * Name of the current class.
      * @var string
      */
-    protected $currentClassName = '';
+    protected string $currentClassName = '';
 
     /**
      * @param string|object $class
@@ -50,7 +51,7 @@ class ClassInfo
     }
 
     /**
-     * Délégation d'appel d'une méthode de la classe de réflexion de la classe courante.
+     * Delegate the method call of current class.
      *
      * @param string $method
      * @param array $arguments
@@ -73,7 +74,7 @@ class ClassInfo
     }
 
     /**
-     * Récupération du chemin absolu vers le repertoire de stockage d'une application déclarée.
+     * Get the absolute path to the class directory.
      *
      * @return string
      */
@@ -83,7 +84,8 @@ class ClassInfo
     }
 
     /**
-     * Récupération du nom court de la classe au format kebab (Minuscules séparées par des tirets).
+     * Get the kebab name to the class.
+     * {@ internal KebabName is lower case letters separated by dashes format.}
      *
      * @return string
      */

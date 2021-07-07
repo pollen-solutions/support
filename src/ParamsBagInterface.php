@@ -12,88 +12,88 @@ use Pollen\Support\Exception\JsonException;
 interface ParamsBagInterface extends ArrayAccess, Countable, IteratorAggregate
 {
     /**
-     * Récupération d'un élément d'itération.
+     * Get an iteration item.
      *
-     * @param string|int $key Clé d'indexe.
+     * @param string|int $key
      *
      * @return mixed
      */
     public function __get($key);
 
     /**
-     * Définition d'un élément d'itération.
+     * Set an iteration item.
      *
-     * @param string|int $key Clé d'indexe.
-     * @param mixed $value Valeur.
+     * @param string|int $key
+     * @param mixed $value
      *
      * @return void
      */
     public function __set($key, $value): void;
 
     /**
-     * Vérification d'existance d'un élément d'itération.
+     * Check if an iteration item exists.
      *
-     * @param string|int $key Clé d'indexe.
+     * @param string|int $key
      *
      * @return bool
      */
     public function __isset($key): bool;
 
     /**
-     * Suppression d'un élément d'itération.
+     * Unset an iteration item.
      *
-     * @param string|int $key Clé d'indexe.
+     * @param string|int $key
      *
      * @return void
      */
     public function __unset($key): void;
 
     /**
-     * Récupération de la liste des attributs.
+     * Get complete list of parameter attributes.
      *
      * @return array
      */
     public function all(): array;
 
     /**
-     * Suppression de la liste des attributs déclarés.
+     * Delete complete list of parameter attributes.
      *
      * @return void
      */
     public function clear(): void;
 
     /**
-     * Compte le nombre d'éléments.
+     * Count the number of list of parameter attributes.
      *
      * @return int
      */
     public function count(): int;
 
     /**
-     * Définition de la liste des attributs par défaut.
+     * Set the default list of parameter attributes.
      *
      * @return array
      */
     public function defaults(): array;
 
     /**
-     * Suppression d'un ou plusieurs attributs.
+     * Remove one or many parameter attributes.
      *
-     * @param array|string $keys Liste des indices des attributs à supprimer. Syntaxe à point permise.
+     * @param array|string $keys
      *
      * @return void
      */
     public function forget($keys): void;
 
     /**
-     * Récupération d'un attribut.
+     * Get a parameter attribute value.
      *
-     * @param string $key Clé d'indexe de l'attribut. Syntaxe à point permise.
-     * @param mixed $default Valeur de retour par defaut lorsque l'attribut n'est pas défini.
+     * @param string $key
+     * @param mixed $default
      *
      * @return mixed
      */
-    public function get(string $key, $default = '');
+    public function get(string $key, $default = null);
 
     /**
      * @inheritDoc
@@ -101,42 +101,32 @@ interface ParamsBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function getIterator(): iterable;
 
     /**
-     * Vérification d'existence d'un attribut de configuration.
+     * Check if a parameter attribute exists.
      *
-     * @param string $key Clé d'indexe de l'attribut. Syntaxe à point permise.
+     * @param string $key
      *
      * @return bool
      */
     public function has(string $key): bool;
 
     /**
-     * Récupération de la liste des paramètres au format json.
-     * @see http://php.net/manual/fr/function.json-encode.php
+     * Get list of parameter attributes as a JSON string format.
+     * @see https://php.net/manual/function.json-encode.php
      *
-     * @param int $options Options d'encodage.
+     * @param int $options
      *
      * @return string
      *
      * @throws JsonException
      */
-    public function json($options = 0): string;
+    public function json(int $options = 0): string;
 
     /**
-     * Récupération de la liste des clés d'indexes des attributs de configuration.
+     * Get list of parameter attributes keys.
      *
      * @return string[]
      */
     public function keys(): array;
-
-    /**
-     * Cartographie de donnée.
-     *
-     * @param mixed $value
-     * @param string|int $key
-     *
-     * @return void
-     */
-    public function map(&$value, $key): void;
 
     /**
      * @inheritDoc
@@ -159,66 +149,65 @@ interface ParamsBagInterface extends ArrayAccess, Countable, IteratorAggregate
     public function offsetUnset($offset): void;
 
     /**
-     * Récupération d'un jeu d'attributs associé à une liste de clés d'indices.
+     * Get a subset of the parameter attributes from a given list of keys.
      *
-     * @param string[] $keys Liste des clés d'indice du jeu d'attributs à récupérer.
+     * @param string[] $keys
      *
      * @return array
      */
     public function only(array $keys): array;
 
     /**
-     * Traitement de la liste des attributs.
+     * Parse the entire list of parameters.
      *
      * @return void
      */
     public function parse(): void;
 
     /**
-     * Récupére la valeur d'un attribut avant de le supprimer.
+     * Get a value of a parameter attribute, and remove it.
      *
-     * @param string $key Clé d'indexe de l'attribut. Syntaxe à point permise.
-     * @param mixed $default Valeur de retour par defaut lorsque l'attribut n'est pas défini.
+     * @param string $key
+     * @param mixed $default
      *
      * @return mixed
      */
     public function pull(string $key, $default = null);
 
     /**
-     * Insertion d'un attribut à la fin d'une liste d'attributs.
+     * Append a not indexed value in a list of parameter attributes. Create the list if necessary.
      *
-     * @param string $key Clé d'indexe de l'attribut. Syntaxe à point permise.
-     * @param mixed $value Valeur de l'attribut.
+     * @param string $key
+     * @param mixed $value
      *
      * @return void
      */
     public function push(string $key, $value): void;
 
     /**
-     * Définition d'un attribut.
+     * Set one or many parameter attributes.
      *
-     * @param string|array $key Clé d'indexe de l'attribut, Syntaxe à point permise ou tableau associatif des attributs
-     *                          à définir.
-     * @param mixed $value Valeur de l'attribut si la clé d'index est de type string.
+     * @param string|array $key
+     * @param mixed $value
      *
      * @return void
      */
     public function set($key, $value = null): void;
 
     /**
-     * Insertion d'un attribut au début d'une liste d'attributs.
+     * Prepend a not indexed value in a list of parameter attributes. Create the list if necessary.
      *
-     * @param mixed $value Valeur de l'attribut.
-     * @param string $key Clé d'indexe de l'attribut. Syntaxe à point permise.
+     * @param mixed $value
+     * @param string $key
      *
      * @return void
      */
     public function unshift($value, string $key): void;
 
     /**
-     * Récupération de la liste des valeurs des attributs de configuration.
+     * Get the list of parameter attributes values.
      *
-     * @return mixed[]
+     * @return array
      */
     public function values(): array;
 }

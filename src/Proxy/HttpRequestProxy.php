@@ -17,12 +17,13 @@ use RuntimeException;
 trait HttpRequestProxy
 {
     /**
-     * Instance de la requête HTTP.
+     * HTTP request instance.
+     * @var RequestInterface|null
      */
     private ?RequestInterface $httpRequest = null;
 
     /**
-     * Instance de la requête HTTP.
+     * Get the HTTP request instance.
      *
      * @return RequestInterface|BaseRequest
      */
@@ -44,7 +45,7 @@ trait HttpRequestProxy
     }
 
     /**
-     * Instance de la requête HTTP au format PSR-7.
+     * Get the PSR-7 HTTP request instance.
      *
      * @return PsrRequestInterface
      */
@@ -54,7 +55,7 @@ trait HttpRequestProxy
     }
 
     /**
-     * Définition de la requête HTTP.
+     * Set the HTTP request instance.
      *
      * @param RequestInterface $httpRequest
      *
