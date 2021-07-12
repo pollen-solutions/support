@@ -241,8 +241,6 @@ class ParamsBag implements ParamsBagInterface
     {
         $keys = is_array($key) ? $key : [$key => $value];
 
-        array_walk($keys, [$this, 'map']);
-
         foreach ($keys as $k => $v) {
             Arr::set($this->attributes, $k, $v);
         }
