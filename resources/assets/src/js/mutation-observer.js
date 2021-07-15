@@ -8,10 +8,13 @@ export default function (selector, callback) {
               for (let i = 0; i < mutation.addedNodes.length; i++) {
                 let $el = mutation.addedNodes[i]
 
-                if ($el instanceof HTMLElement)
+                if ($el instanceof HTMLElement) {
                   if ($el.matches(selector)) {
                     callback($el)
+                  } else {
+                    $el.querySelectorAll(selector).forEach(el => callback(el));
                   }
+                }
               }
             }
           }
