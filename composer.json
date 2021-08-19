@@ -1,6 +1,6 @@
 {
   "name": "pollen-solutions/support",
-  "description": "Pollen Support Component - Collection of PHP development support tools.",
+  "description": "Pollen Solutions - Support Component - Collection of PHP development support tools.",
   "homepage": "https://www.presstify.com/pollen-solutions/support/",
   "keywords": [
     "pollen-solutions",
@@ -8,7 +8,7 @@
     "support",
     "PHP developpement"
   ],
-  "time": "2021-07-15",
+  "time": "2021-08-19",
   "license": "MIT",
   "authors": [
     {
@@ -33,7 +33,7 @@
     "roave/security-advisories": "dev-latest"
   },
   "suggest": {
-    "pollen-solutions/container" : "Pollen Container Component - PSR-11 ready Dependencies Injection Container."
+    "pollen-solutions/container" : "Pollen Solutions - Container Component - PSR-11 Dependency injection container."
   },
   "autoload": {
     "psr-4": {
@@ -45,11 +45,5 @@
       "Pollen\\Support\\Test\\": "tests"
     }
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true
-  }
+  "minimum-stability": "dev"
 }
