@@ -116,6 +116,18 @@ class Str extends BaseStr
     }
 
     /**
+     * Format a var string as human words.
+     *
+     * @param string $var
+     *
+     * @return string
+     */
+    public static function humanWords(string $var): string
+    {
+        return str_replace('  ', ' ', ucfirst(trim(implode(' ', preg_split('/(?=[A-Z])/', $var)))));
+    }
+
+    /**
      * Converts environment variables from a character string or a list of character string.
      *
      * @param string|string[] $output
