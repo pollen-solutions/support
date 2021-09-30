@@ -23,7 +23,7 @@ class Env extends BaseEnv
     public static function load(string $dir): Dotenv
     {
         if (static::$loader === null) {
-            static::$loader = Dotenv::createImmutable($dir);
+            static::$loader = Dotenv::createImmutable($dir, ['.env', '.env.local'], false);
             static::$loader->safeLoad();
         }
 
