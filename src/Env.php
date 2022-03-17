@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Pollen\Support;
 
 use Dotenv\Dotenv;
+use Dotenv\Repository\Adapter\PutenvAdapter;
 use Dotenv\Repository\RepositoryInterface;
 use Dotenv\Repository\RepositoryBuilder;
 use PhpOption\Option;
+use RuntimeException;
 
 class Env
 {
@@ -22,6 +24,12 @@ class Env
      * @var RepositoryInterface|null
      */
     protected static ?RepositoryInterface $repository = null;
+
+    /**
+     * Allow uses global env var.
+     * @var bool
+     */
+    protected static bool $globalEnabled = false;
 
     /**
      * Merge Vars Bag instance.
@@ -72,6 +80,18 @@ class Env
     }
 
     /**
+     * Enabling global environment variables usage.
+     *
+     * @param bool $enabled
+     *
+     * @return void
+     */
+    public static function enableGlobal(bool $enabled): void
+    {
+        static::$globalEnabled = true;
+    }
+
+    /**
      * Gets the environment repository instance.
      *
      * @return RepositoryInterface
@@ -79,11 +99,8 @@ class Env
     public static function getRepository(): RepositoryInterface
     {
         if (static::$repository === null) {
-            $builder = RepositoryBuilder::createWithDefaultAdapters();
-
-            static::$repository = $builder->immutable()->make();
+            throw new RuntimeException('Env file must loaded before.');
         }
-
         return static::$repository;
     }
 
@@ -97,7 +114,16 @@ class Env
     public static function load(string $path): Dotenv
     {
         if (static::$loader === null) {
-            static::$loader = Dotenv::create(static::getRepository(), $path, ['.env', '.env.local'], false);
+            $builder = RepositoryBuilder::createWithDefaultAdapters();
+
+            if (static::$globalEnabled) {
+                $builder->addAdapter(PutenvAdapter::class);
+            }
+            $builder->immutable();
+
+            static::$repository = $builder->make();
+
+            static::$loader = Dotenv::create(static::$repository, $path, ['.env', '.env.local'], false);
             static::$loader->safeLoad();
         }
 
