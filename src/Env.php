@@ -8,6 +8,7 @@ use Dotenv\Dotenv;
 use Dotenv\Repository\Adapter\PutenvAdapter;
 use Dotenv\Repository\RepositoryInterface;
 use Dotenv\Repository\RepositoryBuilder;
+use Pollen\Support\Filesystem as fs;
 use PhpOption\Option;
 use RuntimeException;
 
@@ -123,7 +124,15 @@ class Env
 
             static::$repository = $builder->make();
 
-            static::$loader = Dotenv::create(static::$repository, $path, ['.env', '.env.local'], false);
+            $names = ['.env', '.env.local'];
+            foreach ($names as $k => $name) {
+                $filename = fs::normalizePath($path . fs::DS . $name);
+                if (!file_exists($filename)) {
+                    unset($names[$k]);
+                }
+            }
+
+            static::$loader = Dotenv::create(static::$repository, $path, array_values($names), false);
             static::$loader->safeLoad();
         }
 
