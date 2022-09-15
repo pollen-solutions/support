@@ -51,7 +51,7 @@ trait AssetProxy
             return $asset;
         }
 
-        throw new ProxyInvalidArgumentException(sprintf('Asset [%s] is unavailable', $asset));
+        throw new ProxyInvalidArgumentException(sprintf('Asset [%s] is unavailable', $name));
     }
 
     /**
