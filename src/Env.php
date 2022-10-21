@@ -48,7 +48,13 @@ class Env
      */
     public static function get(string $key, $default = null)
     {
-        return Option::fromValue(static::getRepository()->get($key))
+        try {
+           $repository = static::getRepository();
+        } catch (RuntimeException $e) {
+            return $default;
+        }
+
+        return Option::fromValue($repository->get($key))
             ->map(function ($value) {
                 switch (strtolower($value)) {
                     case 'true':
